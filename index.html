@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirinVerse - Help Center</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+    <div class="grid-overlay"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="ph-fill ph-planet"></i>
+                <span>AirinVerse</span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="#commands">Commands</a>
+                <a href="#faq">FAQ</a>
+                <a href="https://discord.com/oauth2/authorize?client_id=1497458057129758940&permissions=8&scope=bot" target="_blank">Invite Bot</a>
+            </div>
+
+            <div class="status-badge checking" id="botStatus">
+                <div class="status-dot"></div>
+                <span class="status-text">Checking...</span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Documentation Header -->
+        <section class="hero" style="min-height: 50vh; padding-bottom: 2rem;">
+            <div class="hero-content fade-in-up" style="animation-delay: 0.1s;">
+                <h1>AirinVerse <span class="text-gradient">Help Center</span></h1>
+                <p>Pusat bantuan dan dokumentasi lengkap untuk menggunakan bot AirinVerse di server Discord kamu.</p>
+                <div class="hero-buttons">
+                    <a href="#commands" class="btn btn-primary"><i class="ph-bold ph-list-magnifying-glass"></i> Jelajahi Commands</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Commands Section -->
+        <section id="commands" class="commands container" style="padding-top: 2rem;">
+            <div class="section-header fade-in-up" style="animation-delay: 0.2s;">
+                <h2>Daftar <span class="text-gradient">Commands</span></h2>
+                <p>Berikut adalah seluruh perintah yang dapat digunakan pada bot AirinVerse.</p>
+            </div>
+
+            <div class="commands-grid">
+                <!-- Utilitas -->
+                <article class="command-card fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="command-header">
+                        <span class="badge badge-info"><i class="ph-bold ph-info"></i> Info</span>
+                        <h3>.ping</h3>
+                    </div>
+                    <div class="command-body">
+                        <p>Mengecek kecepatan respon jaringan bot dan API Discord.</p>
+                        <div class="usage-block"><code>.ping</code></div>
+                    </div>
+                </article>
+
+                <article class="command-card fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="command-header">
+                        <span class="badge badge-info"><i class="ph-bold ph-info"></i> Info</span>
+                        <h3>.serverinfo</h3>
+                    </div>
+                    <div class="command-body">
+                        <p>Menampilkan info lengkap tentang server (owner, member, role, dll).</p>
+                        <div class="usage-block"><code>.serverinfo</code></div>
+                    </div>
+                </article>
+
+                <article class="command-card fade-in-up" style="animation-delay: 0.5s;">
+                    <div class="command-header">
+                        <span class="badge badge-info"><i class="ph-bold ph-info"></i> Info</span>
+                        <h3>.userinfo</h3>
+                    </div>
+                    <div class="command-body">
+                        <p>Melihat detail akun diri sendiri atau akun orang lain yang di-mention.</p>
+                        <div class="usage-block"><code>.userinfo [@username]</code></div>
+                    </div>
+                </article>
+
+                <article class="command-card fade-in-up" style="animation-delay: 0.6s;">
+                    <div class="command-header">
+                        <span class="badge badge-user"><i class="ph-bold ph-user"></i> General</span>
+                        <h3>.register</h3>
+                    </div>
+                    <div class="command-body">
+                        <p>Mendaftarkan diri untuk mendapatkan role otomatis <strong>💫 Anak Angkatan</strong>.</p>
+                        <div class="usage-block"><code>.register</code></div>
+                    </div>
+                </article>
+                
+                <article class="command-card fade-in-up" style="animation-delay: 0.65s;">
+                    <div class="command-header">
+                        <span class="badge badge-user"><i class="ph-bold ph-user"></i> General</span>
+                        <h3>.help</h3>
+                    </div>
+                    <div class="command-body">
+                        <p>Menampilkan link menuju halaman pusat bantuan (Help Center) ini.</p>
+                        <div class="usage-block"><code>.help</code></div>
+                    </div>
+                </article>
+
+                <!-- Moderasi -->
+                <article class="command-card fade-in-up" style="animation-delay: 0.7s;">
+                    <div class="command-header">
+                        <span class="badge badge-admin"><i class="ph-bold ph-shield-star"></i> Admin</span>
+                        <h3>.role+</h3>
+                    </div>
+                    <div class="command-body">
+                        <p>Memberikan role tertentu kepada member (Hanya untuk Admin).</p>
+                        <div class="usage-block"><code>.role+ @username NamaRole</code></div>
+                    </div>
+                </article>
+
+                <article class="command-card fade-in-up" style="animation-delay: 0.8s;">
+                    <div class="command-header">
+                        <span class="badge badge-admin"><i class="ph-bold ph-shield-star"></i> Admin</span>
+                        <h3>.clear</h3>
+                    </div>
+                    <div class="command-body">
+                        <p>Menghapus pesan secara massal (1 - 100 pesan) di satu channel.</p>
+                        <div class="usage-block"><code>.clear [angka]</code></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section container">
+            <div class="section-header fade-in-up" style="animation-delay: 0.2s;">
+                <h2>Pertanyaan yang Sering <span class="text-gradient">Diajukan</span></h2>
+            </div>
+            <div class="faq-grid fade-in-up" style="animation-delay: 0.3s;">
+                <div class="faq-card">
+                    <h3>Bagaimana jika command .register error?</h3>
+                    <p>Pastikan bot AirinVerse memiliki posisi role yang lebih tinggi daripada role "💫 Anak Angkatan" di pengaturan server Discord-mu. Pastikan juga role tersebut sudah dibuat oleh admin.</p>
+                </div>
+                <div class="faq-card">
+                    <h3>Kenapa .clear tidak bisa menghapus pesan lama?</h3>
+                    <p>Karena batasan dari sistem Discord (API Limitation), bot mana pun tidak bisa menghapus pesan secara massal jika pesan tersebut usianya sudah lebih dari 14 hari.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom" style="border-top: none; padding-top: 4rem;">
+            <div class="footer-container container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <div class="footer-logo">
+                    <i class="ph-fill ph-planet"></i> AirinVerse Help
+                </div>
+                <p>&copy; 2026 AirinVerse Team. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script for Live Status -->
+    <script>
+        async function fetchStatus() {
+            const statusBadge = document.getElementById('botStatus');
+            const statusText = statusBadge.querySelector('.status-text');
+            
+            try {
+                const response = await fetch('/api/status');
+                const data = await response.json();
+                
+                statusBadge.className = 'status-badge ' + data.status;
+                if (data.status === 'online') {
+                    statusText.textContent = `Online (${data.ping}ms)`;
+                } else {
+                    statusText.textContent = 'Offline';
+                }
+            } catch (error) {
+                statusBadge.className = 'status-badge offline';
+                statusText.textContent = 'Offline';
+            }
+        }
+
+        fetchStatus();
+        setInterval(fetchStatus, 10000);
+    </script>
+</body>
+</html>
