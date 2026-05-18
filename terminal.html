@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirinVerse - Live Terminal Console</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        .terminal-container {
+            max-width: 1000px;
+            margin: 6rem auto 3rem;
+            padding: 0 1.5rem;
+        }
+
+        .terminal-header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .terminal-title-area {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .terminal-title-area i {
+            font-size: 2rem;
+            color: var(--accent);
+            text-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+        }
+
+        .terminal-title-area h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        .terminal-actions-bar {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .terminal-page-body {
+            background: #05020a;
+            border: 1px solid rgba(217, 70, 239, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), inset 0 0 30px rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+        }
+
+        .terminal-top-control {
+            background: rgba(10, 5, 20, 0.8);
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .terminal-status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .status-dot.online {
+            background: var(--success);
+            box-shadow: 0 0 8px var(--success);
+        }
+
+        .status-dot.offline {
+            background: var(--error);
+            box-shadow: 0 0 8px var(--error);
+        }
+
+        .status-dot.connecting {
+            background: var(--accent);
+            box-shadow: 0 0 8px var(--accent);
+            animation: pulse-dot 1.5s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.4; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .terminal-main-log {
+            padding: 1.5rem;
+            height: 520px;
+            overflow-y: auto;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            scroll-behavior: smooth;
+        }
+
+        .terminal-page-input-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.4rem 0.75rem;
+            border-radius: 10px;
+        }
+
+        .terminal-page-input-group label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .terminal-page-input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--text-main);
+            font-size: 0.85rem;
+            width: 120px;
+        }
+    </style>
+</head>
+
+<body style="min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between;">
+
+    <!-- Background Space Effect -->
+    <div class="space-bg">
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+        <div class="glowing-orb orb-1"></div>
+        <div class="glowing-orb orb-2"></div>
+    </div>
+
+    <!-- Terminal Container -->
+    <div class="terminal-container container fade-in-up">
+        
+        <div class="terminal-header-bar">
+            <div class="terminal-title-area">
+                <i class="ph-fill ph-terminal"></i>
+                <div>
+                    <h1>Live <span class="text-gradient">Console Terminal</span></h1>
+                    <p style="margin: 3px 0 0; color: var(--text-muted); font-size: 0.9rem;">Log debug dan aktivitas real-time dari bot AirinVerse.</p>
+                </div>
+            </div>
+            
+            <div class="terminal-actions-bar">
+                <a href="index.html#dashboard" class="btn btn-secondary" style="border: 1px solid rgba(255, 255, 255, 0.1); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                    <i class="ph-bold ph-arrow-left"></i> Kembali ke Dashboard
+                </a>
+            </div>
+        </div>
+
+        <div class="terminal-page-body">
+            <!-- Top Controls inside Terminal Box -->
+            <div class="terminal-top-control">
+                <div class="terminal-status-indicator">
+                    <span id="connDot" class="status-dot offline"></span>
+                    <span id="connText" style="color: var(--text-muted);">Disconnected</span>
+                </div>
+                
+                <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                    <!-- Passcode local input in header -->
+                    <div class="terminal-page-input-group">
+                        <label for="terminalPasscode"><i class="ph-bold ph-key"></i> Passcode:</label>
+                        <input type="password" id="terminalPasscode" class="terminal-page-input" placeholder="Masukkan Passcode" oninput="savePasscodeAndConnect()">
+                    </div>
+                    
+                    <button type="button" class="btn btn-secondary" onclick="clearTerminalScreen()" style="padding: 0.4rem 1rem; font-size: 0.8rem; border-radius: 8px; cursor: pointer; border: 1px solid rgba(255, 255, 255, 0.05); display: inline-flex; align-items: center; gap: 0.4rem;">
+                        <i class="ph-bold ph-trash"></i> Bersihkan Layar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Terminal Main Log Area -->
+            <div id="terminalLogArea" class="terminal-main-log">
+                <div class="terminal-line security-info">[SECURITY] Silakan masukkan Passcode Keamanan untuk menghubungkan ke live terminal log.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Small Footer -->
+    <footer style="padding: 2rem 0; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center; font-size: 0.85rem; color: var(--text-muted); z-index: 10;">
+        <p>&copy; 2026 AirinVerse Team. All rights reserved.</p>
+    </footer>
+
+    <!-- Terminal Controller Javascript -->
+    <script>
+        let logPollInterval = null;
+        let lastLogsJSON = "";
+
+        function getServerUrl() {
+            const url = localStorage.getItem('bot_server_url') || '';
+            return url.endsWith('/') ? url.slice(0, -1) : url;
+        }
+
+        // Load saved passcode from localStorage on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedPasscode = localStorage.getItem('admin_passcode');
+            if (savedPasscode) {
+                document.getElementById('terminalPasscode').value = savedPasscode;
+                connectTerminal();
+            }
+        });
+
+        // Save passcode to localStorage and try to connect
+        function savePasscodeAndConnect() {
+            const passcodeVal = document.getElementById('terminalPasscode').value;
+            localStorage.setItem('admin_passcode', passcodeVal);
+            
+            if (passcodeVal.trim() !== '') {
+                connectTerminal();
+            } else {
+                disconnectTerminal();
+            }
+        }
+
+        // Connect terminal
+        function connectTerminal() {
+            if (logPollInterval) clearInterval(logPollInterval);
+            
+            const connDot = document.getElementById('connDot');
+            const connText = document.getElementById('connText');
+            
+            connDot.className = "status-dot connecting";
+            connText.textContent = "Connecting...";
+            
+            fetchLogs();
+            logPollInterval = setInterval(fetchLogs, 3000);
+        }
+
+        // Disconnect terminal
+        function disconnectTerminal() {
+            if (logPollInterval) {
+                clearInterval(logPollInterval);
+                logPollInterval = null;
+            }
+            
+            const connDot = document.getElementById('connDot');
+            const connText = document.getElementById('connText');
+            connDot.className = "status-dot offline";
+            connText.textContent = "Disconnected";
+            
+            const logArea = document.getElementById('terminalLogArea');
+            logArea.innerHTML = `<div class="terminal-line security-info">[SECURITY] Silakan masukkan Passcode Keamanan untuk menghubungkan ke live terminal log.</div>`;
+            lastLogsJSON = "";
+        }
+
+        // Fetch Live Console Logs from server
+        async function fetchLogs() {
+            const passcode = document.getElementById('terminalPasscode').value;
+            const logArea = document.getElementById('terminalLogArea');
+            const connDot = document.getElementById('connDot');
+            const connText = document.getElementById('connText');
+
+            if (!passcode) {
+                disconnectTerminal();
+                return;
+            }
+
+            try {
+                const response = await fetch(getServerUrl() + `/api/logs?password=${encodeURIComponent(passcode)}`);
+                
+                if (!response.ok) {
+                    connDot.className = "status-dot offline";
+                    connText.textContent = "Auth Error";
+                    if (response.status === 401) {
+                        logArea.innerHTML = `<div class="terminal-line error" style="text-align: center; padding: 6rem 1rem;">[ERROR] Passcode Keamanan salah! Gagal memuat log bot.</div>`;
+                    }
+                    return;
+                }
+
+                // Mark connected
+                connDot.className = "status-dot online";
+                connText.textContent = "Connected";
+
+                const data = await response.json();
+                const dataString = JSON.stringify(data);
+
+                // Render only on new updates
+                if (dataString === lastLogsJSON) return;
+                lastLogsJSON = dataString;
+
+                if (data.length === 0) {
+                    logArea.innerHTML = `<div class="terminal-line" style="color: #64748b; text-align: center; padding: 6rem 1rem;">Belum ada aktivitas log yang tercatat.</div>`;
+                    return;
+                }
+
+                logArea.innerHTML = "";
+                data.forEach(log => {
+                    const line = document.createElement('div');
+                    line.className = `terminal-line ${log.type}`;
+                    
+                    const timeSpan = document.createElement('span');
+                    timeSpan.className = 'timestamp';
+                    timeSpan.textContent = `[${log.timestamp}]`;
+                    
+                    const textNode = document.createTextNode(log.message);
+                    
+                    line.appendChild(timeSpan);
+                    line.appendChild(textNode);
+                    logArea.appendChild(line);
+                });
+
+                // Auto Scroll down
+                logArea.scrollTop = logArea.scrollHeight;
+
+            } catch (error) {
+                connDot.className = "status-dot offline";
+                connText.textContent = "Server Error";
+                console.error("Gagal mengambil log:", error);
+            }
+        }
+
+        // Clear local logs display
+        function clearTerminalScreen() {
+            const logArea = document.getElementById('terminalLogArea');
+            logArea.innerHTML = `<div class="terminal-line" style="color: #64748b; text-align: center; padding: 6rem 1rem;">Layar dibersihkan. Menunggu log baru...</div>`;
+            lastLogsJSON = "[]";
+        }
+    </script>
+</body>
+
+</html>

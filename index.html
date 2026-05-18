@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirinVerse - Help Center</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Effects -->
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+    <div class="grid-overlay"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="ph-fill ph-planet"></i>
+                <span>AirinVerse</span>
+            </div>
+
+            <div class="nav-links">
+                <a href="#commands">Commands</a>
+                <a href="#faq">FAQ</a>
+                <a href="#dashboard">Dashboard</a>
+                <a href="https://discord.com/oauth2/authorize?client_id=1497458057129758940&permissions=8&scope=bot"
+                    target="_blank">Invite Bot</a>
+            </div>
+
+            <div class="status-badge checking" id="botStatus">
+                <div class="status-dot"></div>
+                <span class="status-text">Checking...</span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Documentation Header -->
+        <section class="hero" style="min-height: 50vh; padding-bottom: 2rem;">
+            <div class="hero-content fade-in-up" style="animation-delay: 0.1s;">
+                <h1>AirinVerse <span class="text-gradient">Help Center</span></h1>
+                <p>Pusat bantuan dan dokumentasi lengkap untuk menggunakan bot AirinVerse di server Discord kamu.</p>
+                <div class="hero-buttons">
+                    <a href="#commands" class="btn btn-primary"><i class="ph-bold ph-list-magnifying-glass"></i>
+                        Jelajahi Commands</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Commands Section -->
+        <section id="commands" class="commands container" style="padding-top: 2rem;">
+            <div class="section-header fade-in-up" style="animation-delay: 0.2s;">
+                <h2>Daftar <span class="text-gradient">Commands</span></h2>
+                <p>Berikut adalah seluruh perintah yang dapat digunakan pada bot AirinVerse.</p>
+            </div>
+
+            <div class="commands-grid">
+                <!-- Utilitas -->
+                <article class="command-card fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="command-header">
+                        <span class="badge badge-info"><i class="ph-bold ph-info"></i> Info</span>
+                        <h3>.ping</h3>
+                    </div>
+                    <div class="command-body">
+                        <p>Mengecek kecepatan respon jaringan bot dan API Discord.</p>
+                        <div class="usage-block"><code>.ping</code></div>
+                    </div>
+                </article>
+
+                <article class="command-card fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="command-header">
+                        <span class="badge badge-info"><i class="ph-bold ph-info"></i> Info</span>
+                        <h3>.serverinfo</h3>
+                    </div>
+                    <div class="command-body">
+                        <p>Menampilkan info lengkap tentang server (owner, member, role, dll).</p>
+                        <div class="usage-block"><code>.serverinfo</code></div>
+                    </div>
+                </article>
+
+                <article class="command-card fade-in-up" style="animation-delay: 0.5s;">
+                    <div class="command-header">
+                        <span class="badge badge-info"><i class="ph-bold ph-info"></i> Info</span>
+                        <h3>.userinfo</h3>
+                    </div>
+                    <div class="command-body">
+                        <p>Melihat detail akun diri sendiri atau akun orang lain yang di-mention.</p>
+                        <div class="usage-block"><code>.userinfo [@username]</code></div>
+                    </div>
+                </article>
+
+                <article class="command-card fade-in-up" style="animation-delay: 0.6s;">
+                    <div class="command-header">
+                        <span class="badge badge-user"><i class="ph-bold ph-user"></i> General</span>
+                        <h3>.register</h3>
+                    </div>
+                    <div class="command-body">
+                        <p>Mendaftarkan diri untuk mendapatkan role otomatis <strong>💫 Anak Angkatan</strong>.</p>
+                        <div class="usage-block"><code>.register</code></div>
+                    </div>
+                </article>
+
+                <article class="command-card fade-in-up" style="animation-delay: 0.65s;">
+                    <div class="command-header">
+                        <span class="badge badge-user"><i class="ph-bold ph-user"></i> General</span>
+                        <h3>.help</h3>
+                    </div>
+                    <div class="command-body">
+                        <p>Menampilkan link menuju halaman pusat bantuan (Help Center) ini.</p>
+                        <div class="usage-block"><code>.help</code></div>
+                    </div>
+                </article>
+
+                <!-- Moderasi -->
+                <article class="command-card fade-in-up" style="animation-delay: 0.7s;">
+                    <div class="command-header">
+                        <span class="badge badge-admin"><i class="ph-bold ph-shield-star"></i> Admin</span>
+                        <h3>.role+</h3>
+                    </div>
+                    <div class="command-body">
+                        <p>Memberikan role tertentu kepada member (Hanya untuk Admin).</p>
+                        <div class="usage-block"><code>.role+ @username NamaRole</code></div>
+                    </div>
+                </article>
+
+                <article class="command-card fade-in-up" style="animation-delay: 0.8s;">
+                    <div class="command-header">
+                        <span class="badge badge-admin"><i class="ph-bold ph-shield-star"></i> Admin</span>
+                        <h3>.clear</h3>
+                    </div>
+                    <div class="command-body">
+                        <p>Menghapus pesan secara massal (1 - 100 pesan) di satu channel.</p>
+                        <div class="usage-block"><code>.clear [angka]</code></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section container">
+            <div class="section-header fade-in-up" style="animation-delay: 0.2s;">
+                <h2>Pertanyaan yang Sering <span class="text-gradient">Diajukan</span></h2>
+            </div>
+            <div class="faq-grid fade-in-up" style="animation-delay: 0.3s;">
+                <div class="faq-card">
+                    <h3>Bagaimana jika command .register error?</h3>
+                    <p>Pastikan bot AirinVerse memiliki posisi role yang lebih tinggi daripada role "💫 Anak Angkatan"
+                        di pengaturan server Discord-mu. Pastikan juga role tersebut sudah dibuat oleh admin.</p>
+                </div>
+                <div class="faq-card">
+                    <h3>Kenapa .clear tidak bisa menghapus pesan lama?</h3>
+                    <p>Karena batasan dari sistem Discord (API Limitation), bot mana pun tidak bisa menghapus pesan
+                        secara massal jika pesan tersebut usianya sudah lebih dari 14 hari.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Admin Dashboard Section -->
+    <section id="dashboard" class="dashboard-section container fade-in-up" style="animation-delay: 0.4s; padding-top: 4rem; padding-bottom: 4rem;">
+        <div class="section-header">
+            <h2>Admin <span class="text-gradient">Dashboard</span></h2>
+            <p>Kelola pengaturan welcome message, role pendaftaran, game role, serta kontrol status bot secara real-time.</p>
+        </div>
+
+        <!-- Security & Control Grid -->
+        <div class="dashboard-grid">
+            <!-- Control Panel Card -->
+            <div class="dash-card control-card">
+                <div class="dash-card-header">
+                    <h3><i class="ph-bold ph-cpu"></i> Bot Control Panel</h3>
+                    <p>Kendalikan status koneksi bot Discord dan proses server.</p>
+                </div>
+                <div class="dash-card-body">
+                    <div class="control-status-container">
+                        <span class="control-label">Status Bot Discord:</span>
+                        <span id="botDetailStatus" class="status-indicator offline">Checking...</span>
+                    </div>
+                    <div class="control-actions">
+                        <button id="btnToggleBot" class="btn btn-secondary" onclick="controlBot('toggle')">
+                            <i class="ph-bold ph-power"></i> <span>Mengubah Status...</span>
+                        </button>
+                        <a href="terminal.html" class="btn btn-primary" style="background: linear-gradient(135deg, var(--accent), #0891b2); box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.4); border: none; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                            <i class="ph-bold ph-terminal"></i> Live Terminal
+                        </a>
+                        <button id="btnRestartBot" class="btn btn-danger" onclick="controlBot('restart')" style="background: linear-gradient(135deg, #ef4444, #b91c1c); box-shadow: 0 10px 25px -5px rgba(239, 68, 68, 0.4); border: none; cursor: pointer;">
+                            <i class="ph-bold ph-arrows-counter-clockwise"></i> Restart Bot
+                        </button>
+                    </div>
+                    <div id="controlFeedback" class="feedback-msg"></div>
+                </div>
+            </div>
+
+            <!-- Passcode Security Card -->
+            <div class="dash-card security-card">
+                <div class="dash-card-header">
+                    <h3><i class="ph-bold ph-key"></i> Keamanan & Server</h3>
+                    <p>Masukkan passcode admin dan URL server bot kamu.</p>
+                </div>
+                <div class="dash-card-body" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div class="form-group">
+                        <label for="passcode" style="font-size: 0.9rem; font-weight: 600; color: #94a3b8;">Passcode Keamanan</label>
+                        <div class="input-wrapper">
+                            <i class="ph-bold ph-lock-key"></i>
+                            <input type="password" id="passcode" placeholder="Passcode Admin (Default: admin123)" class="form-input">
+                        </div>
+                        <span class="form-help">Wajib diisi sebelum menyimpan pengaturan atau melakukan kontrol bot.</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="botServerUrl" style="font-size: 0.9rem; font-weight: 600; color: #94a3b8;">URL Server Bot Discord (Nexuhost / VPS)</label>
+                        <div class="input-wrapper">
+                            <i class="ph-bold ph-globe"></i>
+                            <input type="text" id="botServerUrl" placeholder="Contoh: http://103.xxx.xxx.xxx:3000" class="form-input" oninput="saveServerUrl()">
+                        </div>
+                        <span class="form-help">Biarkan kosong jika website dan bot di-host di tempat yang sama.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Editor Form Card -->
+        <div class="dash-card editor-card" style="margin-top: 2rem;">
+            <div class="dash-card-header">
+                <h3><i class="ph-bold ph-sliders"></i> Pengaturan Bot</h3>
+                <p>Sesuaikan pesan sambutan, role pendaftaran, dan game role sesukamu.</p>
+            </div>
+            <div class="dash-card-body">
+                <form id="settingsForm" onsubmit="saveBotSettings(event)">
+                    
+                    <!-- Welcome Message Settings -->
+                    <div class="form-section">
+                        <h4><i class="ph-bold ph-hand-waving"></i> Pengaturan Welcome Message</h4>
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label for="welcome_channel">Nama Channel Welcome</label>
+                                <input type="text" id="welcome_channel" class="form-input" placeholder="welcome">
+                            </div>
+                            <div class="form-group">
+                                <label for="welcome_title">Judul Embed Welcome</label>
+                                <input type="text" id="welcome_title" class="form-input" placeholder="🌌 Selamat Datang di AirinVerse!">
+                            </div>
+                            <div class="form-group">
+                                <label for="welcome_color">Warna Embed Welcome (HEX)</label>
+                                <div style="display: flex; gap: 0.5rem; align-items: center;">
+                                    <input type="color" id="welcome_color_picker" class="form-input" style="width: 50px; padding: 2px; height: 42px; cursor: pointer;">
+                                    <input type="text" id="welcome_color" class="form-input" placeholder="#d946ef">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="welcome_image">Banner Welcome URL</label>
+                                <input type="text" id="welcome_image" class="form-input" placeholder="https://unsplash.com/...">
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-top: 1rem;">
+                            <label for="welcome_message">Isi Deskripsi Welcome Message</label>
+                            <textarea id="welcome_message" class="form-input" rows="4" placeholder="Halo <@${member.id}>! ..."></textarea>
+                            <span class="form-help">Gunakan <code>&lt;@\${member.id}&gt;</code> untuk mention member baru, dan <code>**\${member.guild.name}**</code> untuk nama server.</span>
+                        </div>
+                    </div>
+
+                    <!-- Registration Default Role -->
+                    <div class="form-section" style="margin-top: 2rem;">
+                        <h4><i class="ph-bold ph-user-plus"></i> Pengaturan Registrasi (Default Role)</h4>
+                        <div class="form-group">
+                            <label for="register_role">Nama Role Default (Command .register)</label>
+                            <input type="text" id="register_role" class="form-input" placeholder="💫  Anak Angkatan">
+                            <span class="form-help">Pastikan nama role sama persis dengan yang ada di server Discord.</span>
+                        </div>
+                    </div>
+
+                    <!-- Game Roles List -->
+                    <div class="form-section" style="margin-top: 2rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
+                            <h4 style="margin: 0;"><i class="ph-bold ph-game-controller"></i> Pengaturan Game Roles (Command .setroles)</h4>
+                            <button type="button" class="btn btn-secondary" onclick="addGameRoleRow()" style="padding: 0.5rem 1rem; font-size: 0.9rem; border-radius: 8px; cursor: pointer;">
+                                <i class="ph-bold ph-plus"></i> Tambah Game
+                            </button>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table class="settings-table">
+                                <thead>
+                                    <tr>
+                                        <th>Label Tombol</th>
+                                        <th>Emoji</th>
+                                        <th>Warna Tombol</th>
+                                        <th>Nama Role Discord</th>
+                                        <th style="width: 80px; text-align: center;">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="gameRolesList">
+                                    <!-- Will be rendered dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 3rem; text-align: right; display: flex; justify-content: flex-end; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                        <div id="submitFeedback" class="feedback-msg" style="margin: 0;"></div>
+                        <button type="submit" class="btn btn-primary" id="btnSaveSettings" style="cursor: pointer; border: none;">
+                            <i class="ph-bold ph-floppy-disk"></i> Simpan Pengaturan
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-cta fade-in-up"
+            style="text-align: center; padding: 4rem 2rem; background: radial-gradient(circle at center, rgba(217, 70, 239, 0.1), transparent 70%);">
+            <h2>Butuh Bantuan Lebih Lanjut?</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">Hubungi Developer (Owner) secara langsung melalui
+                Discord jika kamu menemukan kendala.</p>
+            <a href="https://discordapp.com/users/1473206170062946359" class="btn btn-primary" target="_blank"><i
+                    class="ph-fill ph-user"></i> Contact Owner</a>
+            <a href="https://discordapp.com/users/737836951863820389" class="btn btn-primary"
+                target="_blank"><i class="ph-fill ph-user"></i> Contact kepala server discord</a>
+        </div>
+
+        <div class="footer-bottom" style="border-top: 1px solid var(--border-color); padding: 2rem 0;">
+            <div class="footer-container container"
+                style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <div class="footer-logo">
+                    <i class="ph-fill ph-planet"></i> AirinVerse Help
+                </div>
+                <p>&copy; 2026 AirinVerse Team. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script for Live Status & Dashboard Admin -->
+    <script>
+        let currentSettings = {
+            welcomeChannel: "",
+            welcomeTitle: "",
+            welcomeColor: "",
+            welcomeMessage: "",
+            welcomeImage: "",
+            registerRoleName: "",
+            gameRoles: []
+        };
+
+        function getServerUrl() {
+            const url = localStorage.getItem('bot_server_url') || '';
+            return url.endsWith('/') ? url.slice(0, -1) : url;
+        }
+
+        function saveServerUrl() {
+            const urlVal = document.getElementById('botServerUrl').value.trim();
+            localStorage.setItem('bot_server_url', urlVal);
+            fetchStatus();
+            fetchSettings();
+        }
+
+        // Live status check and bot control status
+        async function fetchStatus() {
+            const statusBadge = document.getElementById('botStatus');
+            const statusText = statusBadge.querySelector('.status-text');
+            
+            const detailStatus = document.getElementById('botDetailStatus');
+            const btnToggleBot = document.getElementById('btnToggleBot');
+
+            try {
+                const response = await fetch(getServerUrl() + '/api/status');
+                const data = await response.json();
+
+                // Navbar status badge
+                statusBadge.className = 'status-badge ' + data.status;
+                if (data.status === 'online') {
+                    statusText.textContent = `Online (${data.ping}ms)`;
+                } else {
+                    statusText.textContent = 'Offline';
+                }
+
+                // Control panel status
+                if (detailStatus) {
+                    if (data.status === 'online') {
+                        detailStatus.textContent = 'Koneksi Discord Bot: ONLINE';
+                        detailStatus.className = 'status-indicator online';
+                        btnToggleBot.innerHTML = '<i class="ph-bold ph-power"></i> Putuskan (Off)';
+                        btnToggleBot.className = 'btn btn-secondary';
+                        btnToggleBot.style.border = '1px solid rgba(239, 68, 68, 0.4)';
+                    } else {
+                        detailStatus.textContent = 'Koneksi Discord Bot: OFFLINE';
+                        detailStatus.className = 'status-indicator offline';
+                        btnToggleBot.innerHTML = '<i class="ph-bold ph-power"></i> Hubungkan (On)';
+                        btnToggleBot.className = 'btn btn-primary';
+                        btnToggleBot.style.border = 'none';
+                        btnToggleBot.style.boxShadow = '0 10px 25px -5px rgba(217, 70, 239, 0.4)';
+                    }
+                }
+            } catch (error) {
+                statusBadge.className = 'status-badge offline';
+                statusText.textContent = 'Offline';
+                if (detailStatus) {
+                    detailStatus.textContent = 'Koneksi Discord Bot: OFFLINE (Server Error)';
+                    detailStatus.className = 'status-indicator offline';
+                }
+            }
+        }
+
+        // Fetch current settings
+        async function fetchSettings() {
+            try {
+                const response = await fetch(getServerUrl() + '/api/settings');
+                const data = await response.json();
+                
+                currentSettings = data;
+                
+                // Populate form fields
+                document.getElementById('welcome_channel').value = currentSettings.welcomeChannel || "welcome";
+                document.getElementById('welcome_title').value = currentSettings.welcomeTitle || "";
+                document.getElementById('welcome_color').value = currentSettings.welcomeColor || "#d946ef";
+                document.getElementById('welcome_color_picker').value = currentSettings.welcomeColor || "#d946ef";
+                document.getElementById('welcome_image').value = currentSettings.welcomeImage || "";
+                document.getElementById('welcome_message').value = currentSettings.welcomeMessage || "";
+                document.getElementById('register_role').value = currentSettings.registerRoleName || "";
+
+                // Render game roles table
+                renderGameRoles();
+            } catch (error) {
+                console.error('Gagal mengambil pengaturan:', error);
+            }
+        }
+
+        // Color picker sync
+        document.getElementById('welcome_color_picker').addEventListener('input', (e) => {
+            document.getElementById('welcome_color').value = e.target.value;
+        });
+        document.getElementById('welcome_color').addEventListener('input', (e) => {
+            if (e.target.value.startsWith('#') && e.target.value.length === 7) {
+                document.getElementById('welcome_color_picker').value = e.target.value;
+            }
+        });
+
+        // Render game roles list
+        function renderGameRoles() {
+            const listContainer = document.getElementById('gameRolesList');
+            listContainer.innerHTML = "";
+
+            if (!currentSettings.gameRoles || currentSettings.gameRoles.length === 0) {
+                listContainer.innerHTML = `<tr><td colspan="5" style="text-align: center; color: var(--text-muted); padding: 2rem;">Belum ada game role ditambahkan.</td></tr>`;
+                return;
+            }
+
+            currentSettings.gameRoles.forEach((game, index) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>
+                        <input type="text" class="form-input table-input" value="${game.label}" onchange="updateGameRoleField(${index}, 'label', this.value)">
+                    </td>
+                    <td>
+                        <input type="text" class="form-input table-input" style="text-align: center; width: 60px;" value="${game.emoji}" onchange="updateGameRoleField(${index}, 'emoji', this.value)">
+                    </td>
+                    <td>
+                        <select class="form-input table-input" onchange="updateGameRoleField(${index}, 'style', this.value)">
+                            <option value="Primary" ${game.style === 'Primary' ? 'selected' : ''}>Primary (Biru)</option>
+                            <option value="Secondary" ${game.style === 'Secondary' ? 'selected' : ''}>Secondary (Abu-abu)</option>
+                            <option value="Success" ${game.style === 'Success' ? 'selected' : ''}>Success (Hijau)</option>
+                            <option value="Danger" ${game.style === 'Danger' ? 'selected' : ''}>Danger (Merah)</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="form-input table-input" value="${game.roleName}" onchange="updateGameRoleField(${index}, 'roleName', this.value)">
+                    </td>
+                    <td style="text-align: center;">
+                        <button type="button" class="btn-delete-row" onclick="deleteGameRoleRow(${index})">
+                            <i class="ph-bold ph-trash"></i>
+                        </button>
+                    </td>
+                `;
+                listContainer.appendChild(tr);
+            });
+        }
+
+        // Helper to update field in the array
+        function updateGameRoleField(index, field, value) {
+            currentSettings.gameRoles[index][field] = value;
+            // Also update custom ID if the label changes to keep it slug-friendly
+            if (field === 'label') {
+                const slug = value.toLowerCase().replace(/[^a-z0-9]/g, '_');
+                currentSettings.gameRoles[index].id = `role_${slug}`;
+            }
+        }
+
+        // Add new game role row
+        function addGameRoleRow() {
+            if (!currentSettings.gameRoles) currentSettings.gameRoles = [];
+            currentSettings.gameRoles.push({
+                id: "role_baru",
+                label: "Nama Game Baru",
+                emoji: "🎮",
+                style: "Primary",
+                roleName: "Nama Role di Server"
+            });
+            renderGameRoles();
+        }
+
+        // Delete game role row
+        function deleteGameRoleRow(index) {
+            currentSettings.gameRoles.splice(index, 1);
+            renderGameRoles();
+        }
+
+        // Save Settings Form
+        async function saveBotSettings(event) {
+            event.preventDefault();
+            const passcode = document.getElementById('passcode').value;
+            const submitFeedback = document.getElementById('submitFeedback');
+            const btnSaveSettings = document.getElementById('btnSaveSettings');
+
+            if (!passcode) {
+                showFeedback(submitFeedback, 'Silakan masukkan Passcode admin terlebih dahulu!', 'error');
+                return;
+            }
+
+            btnSaveSettings.disabled = true;
+            btnSaveSettings.innerHTML = '<i class="ph-bold ph-circle-notch spinner"></i> Menyimpan...';
+
+            // Sync updated non-array values from form
+            currentSettings.welcomeChannel = document.getElementById('welcome_channel').value;
+            currentSettings.welcomeTitle = document.getElementById('welcome_title').value;
+            currentSettings.welcomeColor = document.getElementById('welcome_color').value;
+            currentSettings.welcomeImage = document.getElementById('welcome_image').value;
+            currentSettings.welcomeMessage = document.getElementById('welcome_message').value;
+            currentSettings.registerRoleName = document.getElementById('register_role').value;
+
+            try {
+                const response = await fetch(getServerUrl() + '/api/settings', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        password: passcode,
+                        settings: currentSettings
+                    })
+                });
+
+                const data = await response.json();
+                btnSaveSettings.disabled = false;
+                btnSaveSettings.innerHTML = '<i class="ph-bold ph-floppy-disk"></i> Simpan Pengaturan';
+
+                if (response.ok) {
+                    showFeedback(submitFeedback, '✅ ' + data.message, 'success');
+                } else {
+                    showFeedback(submitFeedback, '❌ ' + (data.error || 'Terjadi kesalahan.'), 'error');
+                }
+            } catch (error) {
+                btnSaveSettings.disabled = false;
+                btnSaveSettings.innerHTML = '<i class="ph-bold ph-floppy-disk"></i> Simpan Pengaturan';
+                showFeedback(submitFeedback, '❌ Gagal menghubungi server.', 'error');
+            }
+        }
+
+        // Control Bot (On/Off/Restart)
+        async function controlBot(action) {
+            const passcode = document.getElementById('passcode').value;
+            const controlFeedback = document.getElementById('controlFeedback');
+
+            if (!passcode) {
+                alert('Silakan masukkan Passcode admin di kolom Passcode Keamanan terlebih dahulu!');
+                return;
+            }
+
+            if (action === 'restart') {
+                const confirmRestart = confirm('Apakah Anda yakin ingin me-restart proses bot? Bot akan offline selama beberapa detik.');
+                if (!confirmRestart) return;
+            }
+
+            try {
+                controlFeedback.style.display = 'block';
+                controlFeedback.className = 'feedback-msg info';
+                controlFeedback.textContent = 'Memproses instruksi...';
+
+                const response = await fetch(getServerUrl() + '/api/control', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        password: passcode,
+                        action: action
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showFeedback(controlFeedback, '✅ ' + data.message, 'success');
+                    // Wait a bit and refresh status
+                    setTimeout(fetchStatus, 3000);
+                } else {
+                    showFeedback(controlFeedback, '❌ ' + (data.error || 'Terjadi kesalahan.'), 'error');
+                }
+            } catch (error) {
+                showFeedback(controlFeedback, '❌ Gagal memproses perintah.', 'error');
+            }
+        }
+        
+        // Simpan passcode ke localStorage agar tersinkronisasi dengan terminal.html secara otomatis
+        document.getElementById('passcode').addEventListener('input', (e) => {
+            localStorage.setItem('admin_passcode', e.target.value);
+        });
+
+        // Autofill sync passcode dari localStorage ke input field jika ada
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedPasscode = localStorage.getItem('admin_passcode');
+            if (savedPasscode) {
+                document.getElementById('passcode').value = savedPasscode;
+            }
+        });
+
+        // Utility to show feedback message
+        function showFeedback(element, message, type) {
+            element.textContent = message;
+            element.style.display = 'block';
+            element.className = 'feedback-msg ' + type;
+            element.style.opacity = '1';
+            
+            if (type !== 'info') {
+                setTimeout(() => {
+                    element.style.opacity = '0';
+                    setTimeout(() => {
+                        element.style.display = 'none';
+                        element.style.opacity = '1';
+                    }, 500);
+                }, 5000);
+            }
+        }
+
+        // Initialize
+        fetchStatus();
+        fetchSettings();
+        setInterval(fetchStatus, 10000);
+
+    </script>
+</body>
+
+</html>
