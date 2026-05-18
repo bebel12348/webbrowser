@@ -347,7 +347,69 @@
             logArea.innerHTML = `<div class="terminal-line" style="color: #64748b; text-align: center; padding: 6rem 1rem;">Layar dibersihkan. Menunggu log baru...</div>`;
             lastLogsJSON = "[]";
         }
+
+        // Custom Modal Logic
+        let modalResolve = null;
+
+        function showCustomConfirm(title, message, isAlert = false) {
+            return new Promise((resolve) => {
+                modalResolve = resolve;
+                const modal = document.getElementById('customModal');
+                const modalTitle = document.getElementById('customModalTitle');
+                const modalMessage = document.getElementById('customModalMessage');
+                const modalIcon = document.getElementById('customModalIcon');
+                const cancelBtn = document.getElementById('customModalCancelBtn');
+                const confirmBtn = document.getElementById('customModalConfirmBtn');
+
+                modalTitle.textContent = title;
+                modalMessage.textContent = message;
+
+                if (isAlert) {
+                    modalIcon.className = "ph-bold ph-info alert-icon";
+                    cancelBtn.style.display = "none";
+                    confirmBtn.textContent = "OK";
+                    confirmBtn.className = "btn btn-primary";
+                    confirmBtn.style.background = "linear-gradient(135deg, var(--accent), #0891b2)";
+                    confirmBtn.style.boxShadow = "0 10px 25px -5px rgba(6, 182, 212, 0.4)";
+                } else {
+                    modalIcon.className = "ph-bold ph-warning-circle";
+                    cancelBtn.style.display = "block";
+                    confirmBtn.textContent = "Ya, Lanjutkan";
+                    confirmBtn.className = "btn btn-danger";
+                    confirmBtn.style.background = "linear-gradient(135deg, #ef4444, #b91c1c)";
+                    confirmBtn.style.boxShadow = "0 10px 25px -5px rgba(239, 68, 68, 0.4)";
+                }
+
+                modal.classList.add('active');
+            });
+        }
+
+        function closeCustomModal(result) {
+            const modal = document.getElementById('customModal');
+            modal.classList.remove('active');
+            if (modalResolve) {
+                modalResolve(result);
+                modalResolve = null;
+            }
+        }
     </script>
+
+    <!-- Custom Modal Markup -->
+    <div id="customModal" class="custom-modal-overlay">
+        <div class="custom-modal-content">
+            <div class="custom-modal-header">
+                <i id="customModalIcon" class="ph-bold ph-warning-circle"></i>
+                <h3 id="customModalTitle">Konfirmasi</h3>
+            </div>
+            <div class="custom-modal-body">
+                <p id="customModalMessage">Apakah Anda yakin?</p>
+            </div>
+            <div class="custom-modal-footer">
+                <button id="customModalCancelBtn" class="btn btn-secondary" style="border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;" onclick="closeCustomModal(false)">Batal</button>
+                <button id="customModalConfirmBtn" class="btn btn-danger" style="cursor: pointer;" onclick="closeCustomModal(true)">Ya, Lanjutkan</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
